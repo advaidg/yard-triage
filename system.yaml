@@ -1,0 +1,134 @@
+name: Triage
+description: Each agent receives the output of the previous one. Data transforms between
+  steps. Schema validation ensures contracts. Supports partial failure recovery and
+  step-level caching.
+namespace: default
+architecture: sequential
+environment: dev
+orchestrator_config:
+  llm_model: null
+  conditions: null
+  engine_type: chain_executor
+  routing_mode: sequential
+  system_prompt: ''
+  max_iterations: 10
+  merge_agent_id: null
+  merge_strategy: null
+  transport_mode: centralized
+  llm_temperature: null
+  fallback_agent_id: null
+  quality_threshold: null
+  reflection_prompt: null
+  quality_metric_key: null
+  reflection_enabled: null
+  max_refinement_loops: null
+  allow_partial_results: null
+  fanout_timeout_seconds: null
+memory_config:
+  open: true
+  schema: null
+  strict: false
+  strategy: shared_bus
+  persistence: session
+  initial_context: null
+  max_memory_keys: 100
+  memory_ttl_seconds: null
+error_recovery:
+  dead_letter_queue: true
+  max_total_retries: 10
+  on_system_failure: return_partial
+  global_timeout_seconds: 300
+  circuit_breaker_enabled: true
+  circuit_breaker_threshold: 3
+  circuit_breaker_reset_seconds: 60
+observability:
+  log_level: info
+  trace_enabled: true
+  metrics_enabled: true
+  trace_include_io: true
+  webhook_on_failure: null
+  webhook_on_complete: null
+  trace_include_memory: true
+nodes:
+- id: node-94117936
+  config:
+    retries: 3
+    on_failure: abort
+    input_mapping: null
+    memory_access: read-write
+    retry_backoff: fixed
+    system_prompt: null
+    output_mapping: null
+    rate_limit_rpm: null
+    retry_delay_ms: 1000
+    timeout_seconds: 30
+    cache_ttl_seconds: null
+    fallback_agent_id: null
+  agent_id: 0cc9608a-ca68-4b03-aa76-0c100349b42e
+  position:
+    x: 100.0
+    y: 200.0
+  agent_version: 1.0.0
+- id: node-9712fffa
+  config:
+    retries: 3
+    on_failure: abort
+    input_mapping: null
+    memory_access: read-write
+    retry_backoff: fixed
+    system_prompt: null
+    output_mapping: null
+    rate_limit_rpm: null
+    retry_delay_ms: 1000
+    timeout_seconds: 30
+    cache_ttl_seconds: null
+    fallback_agent_id: null
+  agent_id: 01b5576b-07d6-46f2-85c3-d66eafb4ea1b
+  position:
+    x: 380.0
+    y: 200.0
+  agent_version: 1.0.0
+- id: node-da0a9b68
+  config:
+    retries: 3
+    on_failure: abort
+    input_mapping: null
+    memory_access: read-write
+    retry_backoff: fixed
+    system_prompt: null
+    output_mapping: null
+    rate_limit_rpm: null
+    retry_delay_ms: 1000
+    timeout_seconds: 30
+    cache_ttl_seconds: null
+    fallback_agent_id: null
+  agent_id: 0c464689-3fc8-4142-8beb-c33a32e62a8a
+  position:
+    x: 660.0
+    y: 200.0
+  agent_version: 1.0.0
+edges:
+- id: edge-seq-0
+  condition: null
+  transform:
+    mappings: null
+    strategy: passthrough
+    llm_model: null
+    llm_prompt: null
+  memory_keys: null
+  memory_pass: full
+  source_node_id: node-94117936
+  target_node_id: node-9712fffa
+  schema_compatibility: null
+- id: edge-seq-1
+  condition: null
+  transform:
+    mappings: null
+    strategy: passthrough
+    llm_model: null
+    llm_prompt: null
+  memory_keys: null
+  memory_pass: full
+  source_node_id: node-9712fffa
+  target_node_id: node-da0a9b68
+  schema_compatibility: null
