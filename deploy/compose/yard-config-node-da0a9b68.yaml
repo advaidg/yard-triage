@@ -1,0 +1,5 @@
+system_id: c8118977-4cda-44a6-a914-0efc0936a9a9
+node_id: node-da0a9b68
+transport_mode: centralized
+input_mode: http
+output_mode: sync
