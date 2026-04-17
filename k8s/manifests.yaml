@@ -492,8 +492,8 @@ data:
     \  merge_agent_id: null\n  merge_strategy: null\n  quality_metric_key: null\n\
     \  quality_threshold: null\n  reflection_enabled: null\n  reflection_prompt: null\n\
     \  routing_mode: sequential\n  system_prompt: ''\n  transport_mode: centralized\n\
-    owner: dev-admin\nstatus: deployed\nupdated_at: '2026-04-17T15:12:16.604471Z'\n\
-    version: 5\n"
+    owner: dev-admin\nstatus: deployed\nupdated_at: '2026-04-17T15:26:04.073097Z'\n\
+    version: 6\n"
   transport: http
 kind: ConfigMap
 metadata:
